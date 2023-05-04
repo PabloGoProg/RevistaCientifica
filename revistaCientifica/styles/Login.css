@@ -1,0 +1,42 @@
+/* Estilos básicos para los estilos de login */
+.Login {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Estilos para el icono reactivo */
+.ri-image {
+    transition: .2s ease-in-out filter;
+}
+
+.ri-image {
+    width:50%;
+}
+
+.ri-image:hover {
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+    cursor: pointer;
+}
+
+/* Diseño de las etiquetas de texto*/
+.et {
+    border-radius: 1000px;
+    border: #001F3f solid 1px;
+    color: #eee;
+    background-color: #0D63A5;
+    max-width: fit-content;
+    justify-content: center;
+    text-align: center;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+.et .text {
+    opacity: 0.9;
+}
+
