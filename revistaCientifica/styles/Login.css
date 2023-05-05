@@ -40,3 +40,26 @@
     opacity: 0.9;
 }
 
+/* Diseño de la tabla del Autor */
+.ta {
+    border-collapse: collapse;
+    font-size: 0.7em;
+    min-width: 250px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.ta-head tr {
+    background-color: #0D63A5; 
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ta-head th,
+.ta-body td {
+    opacity: 0.9;
+    padding: 8px 15px;
+    font-weight: bold;
+}
