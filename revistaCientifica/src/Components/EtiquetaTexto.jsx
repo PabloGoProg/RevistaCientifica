@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styleComponents/EtiquetaTexto.css'
 
 export function EtiquetaTexto({texto}) {
     return (
