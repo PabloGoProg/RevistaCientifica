@@ -1,0 +1,17 @@
+.card_content{
+    padding: 10px 10px;
+    display: block;
+    border: 1px solid #083358;
+    width: 700px;
+    text-align: center;
+}
+
+.card_content:hover{
+    cursor:pointer;
+    filter: drop-shadow(3px 3px 3px #083358);
+}
+
+.card_content span{
+    padding: 8px 0px;
+    display: block;
+}
