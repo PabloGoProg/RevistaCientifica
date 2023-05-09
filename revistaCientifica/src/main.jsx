@@ -7,7 +7,6 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import './Styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
   <section className='mainContent'>
     <HashRouter>
