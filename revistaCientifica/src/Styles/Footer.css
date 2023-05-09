@@ -1,11 +1,13 @@
 .generalFooter {
   background-color: #0D63A5;
-  height: 70px;
+  height: 60px;
   display: flex;
   color: #ffffff;
   padding: 20px;
   text-align: center;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 97%;
 }
 
 .logo_uam{
