@@ -1,10 +1,9 @@
 import React from "react";
-import '../../styles/Login.css'
 import { ReactiveIcon } from "../Components/ReactiveIcon";
 import { EtiquetaTexto } from "../Components/EtiquetaTexto";
-import { TablaEdutor } from "../Components/TablaEditor";
-import { PDFViewer } from "@react-pdf/renderer";
+import { TablaEdutor } from "../Components/TablaAutor";
 import { File } from "../Components/File";
+import '../Styles/Login.css'
 
 export function Login() {
     return (
@@ -13,7 +12,7 @@ export function Login() {
 
             <ReactiveIcon
               link="/register" 
-              srcImg="../../sources/logoUAM.png" 
+              srcImg="../Images/logoUAM.png" 
             />
 
             <TablaEdutor />

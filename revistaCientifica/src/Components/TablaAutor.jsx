@@ -1,6 +1,6 @@
 import React from "react";
 import { EtiquetaTexto } from "./EtiquetaTexto";
-import '../../styleComponents/TablaAutor.css'
+import '../Styles/TablaAutor.css';
 
 export function TablaEdutor() {
   return (
