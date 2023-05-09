@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Header } from './Components/Header.jsx'
-import { Login } from './Pages/Login.jsx'
-import { Register } from './Pages/Register.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Header } from './Components/Header.jsx';
+import { Login } from './Pages/Login.jsx';
+import { Register } from './Pages/Register.jsx';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import '../styles/index.css'
+import './Styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

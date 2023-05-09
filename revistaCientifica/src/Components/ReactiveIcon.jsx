@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../../styleComponents/ReactiveIcon.css'
+import '../Styles/ReactiveIcon.css';
 
 export function ReactiveIcon({link, srcImg}) {
   const navigate = useNavigate();
