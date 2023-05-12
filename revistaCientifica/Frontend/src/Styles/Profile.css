@@ -16,11 +16,8 @@
 }
 
 .profile_img{
-    padding: 3px 3px;
     width: 35px;
     display: flex;
-    border: 1px solid #ffd717;
-    border-radius: 15px;
 }
 
 .profile_name{

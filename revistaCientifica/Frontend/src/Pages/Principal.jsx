@@ -21,7 +21,7 @@ export function Principal(){
     }, []);
 
     if (loading) {
-        return <p>Cargando datos...</p>;
+        return <p></p>;
     }
 
     return (
