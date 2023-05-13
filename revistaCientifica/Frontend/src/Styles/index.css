@@ -3,6 +3,7 @@ body {
     background-color: rgba(231, 229, 229, 0.87);   
     margin: 0;
     padding: 0;
-    display: grid; 
+    max-width: 100vw;
+    min-height: 100vh;
     box-sizing: border-box;   
 }

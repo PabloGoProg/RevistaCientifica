@@ -1,9 +1,13 @@
+import React from 'react';
+import { ReactiveIcon } from './ReactiveIcon.jsx';
 import '../Styles/Footer.css'
 
-export function Footer(){
+export function Footer() {
     return(
         <footer className='generalFooter'>
-            <img className='logo_uam' src='src\Images\logo_uam.png'/>
+            <ReactiveIcon className='footerIcon'
+            link='/register'
+            srcImg='src/Images/logoUAM.png' />
             <span className='footerText'>
             Contacto: pjdevscontact@gmail.com
             </span>

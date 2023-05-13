@@ -1,8 +1,5 @@
 /* Diseño del header */ 
-
 .hs {
-    padding: 0;
-    margin: 0;
     display: flex;
     height: 4rem;
     background-color: #0D63A5;
