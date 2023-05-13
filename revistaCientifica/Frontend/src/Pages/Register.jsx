@@ -12,6 +12,7 @@ export function Register() {
         correo: '',
         contrasena: ''
     })
+    const[usuarioNoExistente, setUsuarioNoExistente] = useState(false);
 
     /**
      * Verifica si el usuario existe en la base de datos con el correo ingresado
@@ -19,14 +20,12 @@ export function Register() {
      * @returns booleano que indica si el usuario existe o no
      */
     function validarUsuarioNoExistente(target) {
-        let response = null;
         axios.get(`http://localhost:3000/usuarios/${target}`)
         .then(res => {
             console.log(res);
             console.log(res.data);
-            response = res.data;
+            res.data === 0 ? setUsuarioNoExistente(true) : setUsuarioNoExistente(false);
         })
-        return response === 0 ? true : false;
     };
 
     /**
@@ -43,11 +42,11 @@ export function Register() {
      */
     function handleSubmit(event) {
         event.preventDefault();
-        if(validarUsuarioNoExistente(bodyUsuario.correo)) {
+        validarUsuarioNoExistente(bodyUsuario.correo);
+        if(usuarioNoExistente) {
             axios.post('http://localhost:3000/usuarios', bodyUsuario)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
+                setUsuarioNoExistente(false);
             });
         } else {
             alert('El usuario ya existe');

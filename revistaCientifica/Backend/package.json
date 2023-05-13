@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon /Users/jpgonzalez/Documents/projects/revistaCientifica/Backend/src/index.js"
+    "dev": "nodemon /Users/jpgonzalez/Documents/projects/RevistaCientifica/revistaCientifica/Backend/src/index.js"
   },
   "keywords": [],
   "author": "",

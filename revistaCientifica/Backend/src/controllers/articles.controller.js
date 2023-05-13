@@ -1,5 +1,4 @@
-import { ConstructionOutlined } from '@mui/icons-material';
-import {pool} from '../db.js'
+import {pool} from '../bd.js';
 
 export const getArticles = async (req, res) => {
     try {
