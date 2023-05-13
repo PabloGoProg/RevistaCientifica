@@ -3,6 +3,8 @@ import autoresRoutes from './routes/autores.routes.js';
 import articulosRoutes from './routes/articulos.routes.js';
 import editoresRoutes from './routes/editores.routes.js';
 import tematicasRoutes from './routes/tematicas.routes.js';
+import articlesRoutes from './routes/articles.routes.js'
+import indexRoutes from './routes/index.routes.js'
 import usuariosRoutes from './routes/usuarios.routes.js';
 import { PORT } from './config.js'
 import cors from 'cors'
@@ -16,6 +18,14 @@ app.use(articulosRoutes);
 app.use(editoresRoutes);
 app.use(tematicasRoutes);
 app.use(usuariosRoutes);
+app.use(express.static('src/docs'));
+app.use('/api', indexRoutes);
+app.use('/api', articlesRoutes);
+app.use((req, res, next) => {
+    res.status(404).json({
+        "message": "not found"
+    })
+});
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArticleCard } from './Components/ArticleCard.jsx';
 import { Header } from './Components/Header.jsx';
 import { Login } from './Pages/Login.jsx';
 import { Register } from './Pages/Register.jsx';
@@ -12,9 +11,7 @@ export function App(){
     return (
         <section className='mainContent'>
             <HashRouter>
-                <Header 
-                    porfileTarget="/register"
-            />
+            <Header/>
 
             <Routes>
                 <Route path="/" element={<Login />} />
@@ -23,6 +20,7 @@ export function App(){
                 <Route path="/principal" element={<Principal />} />
                 <Route path="*" element={<p>Not found</p>} />
             </Routes>
+            <Footer/>
             </HashRouter>
         </section>
     );

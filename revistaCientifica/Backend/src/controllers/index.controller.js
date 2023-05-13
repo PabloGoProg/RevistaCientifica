@@ -1,4 +1,4 @@
-import { pool } from '../db.js'
+import {pool} from '../bd.js';
 
 export const ping = async (req, res) => {
     const result = await pool.query('SELECT 5+5 as result')
