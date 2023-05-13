@@ -1,0 +1,32 @@
+/* Diseño de la tabla del Autor */
+.ta {
+    border-collapse: collapse;
+    min-width: 40%;
+    font-size: 1em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.ta-head tr {
+    background-color: #0D63A5; 
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.ta-head th,
+.ta-body td {
+    opacity: 0.9;
+    padding: 8px 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ta tbody tr:nth-of-type(even) {
+    background-color: #e3e3e3;
+}
+
+.ta tbody tr:last-of-type {
+    border-bottom: 2px solid #0D63A5;
+}

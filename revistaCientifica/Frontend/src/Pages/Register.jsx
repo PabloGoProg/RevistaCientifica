@@ -102,7 +102,3 @@ export function Register() {
         </section>
     );
 }
-
-function valiacionesFormulario() {
-    
-}
