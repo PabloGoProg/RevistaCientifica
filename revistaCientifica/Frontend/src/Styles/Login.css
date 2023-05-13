@@ -1,0 +1,74 @@
+
+.login_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: 100%;
+}
+
+.login_image img{
+    width: 100%;
+    height: 100%;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.login_form .login_form_tittle {
+    font-size: 1.8vw;
+    width: 60%;
+    padding: 3px 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #000;
+    margin-bottom: 1dvw;
+}
+
+.login_form input {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%;
+    min-width: 40vw;
+    min-height: 3.5vh;
+    min-width: 300px;
+    background-color: #ddd;
+    border: 1px solid #001F3F;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1dvw;
+    opacity: 0.8;
+}
+
+.login_form span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    padding: 10px;
+    font-size: 1dvw;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+.login_form .lf-inputBox {
+    position: relative;
+    width: 60%;
+}
+
+.lf-inputBox input:valid ~ span,
+.lf-inputBox input:focus ~ span {
+    color: #001F3F;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65dvw;
+    padding: 0 10px;
+    background-color: #ddd;
+    border-bottom: 1px solid #001F3F;
+    border-left: 1px solid #001F3F;
+    border-right: 1px solid #001F3F;
+    border-top: 1px solid #001F3F;
+}

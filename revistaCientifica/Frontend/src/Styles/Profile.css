@@ -1,0 +1,32 @@
+.profile_card{
+    padding: 10px 10px;
+    display: inline-flex;
+    border: 3px solid #ffd717;
+    width: 500px;
+    border-radius: 40px;
+}
+
+.profile_card:hover{
+    cursor: pointer;
+}
+
+.profile_content{
+    padding-left: 10px;
+    display:block;
+}
+
+.profile_img{
+    width: 35px;
+    display: flex;
+}
+
+.profile_name{
+    font-weight: bold;
+    color:#083358;
+    display: flex;  
+    justify-content: left;
+}
+
+.profile_desc{
+    display: flex;
+}

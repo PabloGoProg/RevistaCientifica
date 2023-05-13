@@ -1,0 +1,9 @@
+.ri-image {
+    transition: .2s ease-in-out filter;
+    width: 80%;
+}
+
+.ri-image:hover {
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+    cursor: pointer;
+}

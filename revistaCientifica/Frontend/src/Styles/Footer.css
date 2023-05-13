@@ -1,0 +1,24 @@
+.generalFooter {
+  display: flex;
+  background-color: #0D63A5;
+  min-height: fit-content;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+.footerIcon {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  min-height: 100%; 
+}
+
+.footerText {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 2%;
+}
