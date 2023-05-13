@@ -52,7 +52,6 @@ export function Login() {
                     <Button className='login_form_button' text={'Ingresar'}/>
                 </form>
             </section>
-
         </section>
     );
 

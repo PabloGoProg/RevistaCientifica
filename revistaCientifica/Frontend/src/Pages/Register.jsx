@@ -103,6 +103,3 @@ export function Register() {
     );
 }
 
-function valiacionesFormulario() {
-    
-}
