@@ -5,6 +5,7 @@ import { Register } from './Pages/Register.jsx';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import {Footer} from './Components/Footer.jsx';
 import { Principal } from './Pages/Principal.jsx';
+import {EditorPage} from './Pages/EditorPage.jsx'
 import './Styles/index.css';
 
 export function App(){
@@ -14,7 +15,7 @@ export function App(){
             <Header/>
 
             <Routes>
-                <Route path="/" element={<Login />} />
+                <Route path="/" element={<EditorPage/>} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/principal" element={<Principal />} />
