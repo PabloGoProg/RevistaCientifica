@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from '../Components/Button';
+import { useAuth } from '../../utils/auth';
+import { Navigate } from 'react-router-dom';
 import '../Styles/Register.css';
 
 export function Register() {
+
+    const auth = useAuth();
+
+    if(auth.user) {
+        return <Navigate to="/perfil" />;
+    }
 
     // Creamos la estructura del usuario 
     const [bodyUsuario, setBodyUsuario] = useState({
@@ -22,9 +30,7 @@ export function Register() {
     function validarUsuarioNoExistente(target) {
         axios.get(`http://localhost:3000/usuarios/${target}`)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
-            res.data === 0 ? setUsuarioNoExistente(true) : setUsuarioNoExistente(false);
+            res.data.length == 0 ? setUsuarioNoExistente(true) : setUsuarioNoExistente(false);
         })
     };
 
@@ -45,9 +51,8 @@ export function Register() {
         validarUsuarioNoExistente(bodyUsuario.correo);
         if(usuarioNoExistente) {
             axios.post('http://localhost:3000/usuarios', bodyUsuario)
-            .then(res => {
-                setUsuarioNoExistente(false);
-            });
+            setUsuarioNoExistente(false);
+            auth.login(bodyUsuario);
         } else {
             alert('El usuario ya existe');
         }
