@@ -1,6 +1,5 @@
 import express from 'express';
 import autoresRoutes from './routes/autores.routes.js';
-import articulosRoutes from './routes/articulos.routes.js';
 import editoresRoutes from './routes/editores.routes.js';
 import tematicasRoutes from './routes/tematicas.routes.js';
 import articlesRoutes from './routes/articles.routes.js'
@@ -14,7 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(autoresRoutes);
-app.use(articulosRoutes);
 app.use(editoresRoutes);
 app.use(tematicasRoutes);
 app.use(usuariosRoutes);
