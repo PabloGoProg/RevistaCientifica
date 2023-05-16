@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TablaEditor } from '../Components/TablaEditor'
+import { RowTableEditor } from '../Components/RowTableEditor';
 import { EtiquetaTexto } from '../Components/EtiquetaTexto';
 import axios from 'axios'
 
@@ -27,13 +28,9 @@ export function EditorPage(){
     
     return(
         <section>
+            <h1>Artículos publicados</h1>
             <TablaEditor data= {data.map(article => (
-                <tr>
-                    <td>{article.titulo}</td>
-                    <td><EtiquetaTexto texto="Tecnología"/></td>
-                    <td>{'En espera'}</td>
-                    <td><input type="checkbox" /></td>
-                </tr>
+                <RowTableEditor key={article.id_articulo} id= {article.id_articulo} name = {article.titulo} />
             ))}/>
         </section>
     );

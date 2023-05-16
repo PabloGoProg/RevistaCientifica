@@ -1,9 +1,9 @@
 .profile_card{
     padding: 10px 10px;
     display: inline-flex;
-    border: 3px solid #ffd717;
+    border: 2px solid #083358;
     width: 500px;
-    border-radius: 40px;
+    background-color: white;
 }
 
 .profile_card:hover{

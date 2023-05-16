@@ -7,6 +7,7 @@ import { Footer } from './Components/Footer.jsx';
 import { Perfil } from './Pages/Perfil.jsx';
 import { Principal } from './Pages/Principal.jsx';
 import { AuthProvider, PrrotectedRoute } from '../utils/auth.jsx';
+import {EditorPage} from './Pages/EditorPage.jsx'
 import './Styles/index.css';
 
 export function App(){
@@ -15,7 +16,6 @@ export function App(){
             <HashRouter>
                 <AuthProvider>
                     <Header/>
-
                     <Routes>
                         <Route path="/" element={<Principal />} /> 
                         {/* Protege la ruta de perfil de algun ingreso a traves del enrutamiento del navegador*/}

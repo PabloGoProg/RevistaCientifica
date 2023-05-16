@@ -2,7 +2,6 @@ import {ArticleCard} from '../Components/ArticleCard'
 import '../Styles/Principal.css';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import {File} from '../Components/File'
 
 export function Principal(){
     const [data, setData] = useState([]);
@@ -25,7 +24,7 @@ export function Principal(){
     }
 
     return (
-        <section className='main_content'>
+        <section className='main_content_principal'>
         {data.map(article => (
             <ArticleCard tittle={article.titulo} desc={article.resumen} ruta={"src/docs/algorithms.pdf"}/>
         ))}

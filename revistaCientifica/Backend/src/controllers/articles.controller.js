@@ -5,17 +5,14 @@ export const getArticles = async (req, res) => {
         const result = await pool.query('SELECT * FROM articulos')
         res.json(result.rows);  
     } catch (error) {
-        res.status(500).json({
-            "message": "error al obtener los articulos"
-        })
-    }
-};
+        res.status(500).send(error)
+    }        
+}
 
 export const getArticleById = async (req, res) => {
     try {
         const result = await pool.query('select * from articulos where id_articulo = $1', [req.params.id])
-        console.log(result.rows[0])
-        res.send('obteniendo articulos por id');
+        res.json(result.rows[0]);
     } catch (error) {
         res.status(500).json({
             "message": "error al obtener el articulo por id"
