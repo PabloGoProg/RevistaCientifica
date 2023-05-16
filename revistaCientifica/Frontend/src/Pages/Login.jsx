@@ -1,11 +1,19 @@
 import React from "react";
-import '../Styles/Login.css'
+import { useState } from "react";
 import {Button} from '../Components/Button'
 import axios from "axios";
+import { useAuth } from "../../utils/auth";
+import { Navigate } from "react-router-dom";
+import '../Styles/Login.css'
 
 export function Login() {
+    const auth = useAuth();
 
-    const [bodySesion, setBodySesion] = React.useState({
+    if(auth.user) {
+        return <Navigate to="/perfil" />;
+    }
+
+    const [bodySesion, setBodySesion] = useState({
         correo: '',
         contrasena: ''
     });
@@ -14,12 +22,18 @@ export function Login() {
         setBodySesion({...bodySesion, [event.target.name]: event.target.value});
     };
 
+    const getInfoUsuario = () => {
+        axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}`, bodySesion.correo)
+        .then(res => {
+            auth.login(res.data[0])
+        });
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}/${bodySesion.contrasena}`, bodySesion)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
+            getInfoUsuario();
         });
     }
 
@@ -49,7 +63,9 @@ export function Login() {
                         required='required' />
                         <span>Contraseña</span>
                     </label>
-                    <Button className='login_form_button' text={'Ingresar'}/>
+                    <Button 
+                    className='login_form_button' 
+                    text={'Ingresar'}/>
                 </form>
             </section>
 

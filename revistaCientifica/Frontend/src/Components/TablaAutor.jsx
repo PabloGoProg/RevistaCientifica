@@ -2,7 +2,7 @@ import React from "react";
 import { EtiquetaTexto } from "./EtiquetaTexto";
 import '../Styles/TablaAutor.css';
 
-export function TablaEdutor() {
+export function TablaAutor() {
   return (
     <>
       <section className="ta-section" >

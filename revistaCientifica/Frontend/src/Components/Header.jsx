@@ -4,12 +4,18 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import '../Styles/Header.css';
+import { useAuth } from "../../utils/auth";
 
 export function Header() {
   const navigate = useNavigate();
+  const auth = useAuth();
 
   const handleClick = () => {
-    navigate('/login');
+    if(auth.user != null) {
+      navigate("/perfil");
+    } else {
+      navigate("/login");
+    }
   }
 
   return(
