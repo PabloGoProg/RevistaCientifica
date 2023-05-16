@@ -30,6 +30,7 @@ export function Register() {
     function validarUsuarioNoExistente(target) {
         axios.get(`http://localhost:3000/usuarios/${target}`)
         .then(res => {
+            console.log(res.data.length)
             res.data.length == 0 ? setUsuarioNoExistente(true) : setUsuarioNoExistente(false);
         })
     };

@@ -25,6 +25,7 @@ export function Login() {
     const getInfoUsuario = () => {
         axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}`, bodySesion.correo)
         .then(res => {
+            console.log(res.data)
             auth.login(res.data[0])
         });
     }
