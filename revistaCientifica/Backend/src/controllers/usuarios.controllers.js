@@ -5,7 +5,7 @@ export const getUsuariosById = async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM usuarios WHERE correo = $1', [req.params.id]);
         // retorna el resltado de la query
-        res.json(result.rowCount);
+        res.json(result.rows);
     } catch (error) {
         res.status(500).json('Internal server error');
     }

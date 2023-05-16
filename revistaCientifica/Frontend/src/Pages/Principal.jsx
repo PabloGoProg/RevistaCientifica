@@ -26,7 +26,7 @@ export function Principal(){
     return (
         <section className='main_content_principal'>
         {data.map(article => (
-            <ArticleCard tittle={article.titulo} desc={article.resumen} ruta={"src/docs/algorithms.pdf"}/>
+            <ArticleCard key={article.id_articulo} tittle={article.titulo} desc={article.resumen} ruta={"src/docs/algorithms.pdf"}/>
         ))}
         </section>
     );

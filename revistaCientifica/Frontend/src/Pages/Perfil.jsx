@@ -13,6 +13,7 @@ export function Perfil() {
         titulo: '',
         resumen: ''
     });
+
     const [archivo, setArchivo] = useState(null);
     const [ventanaDesplegada, setVentanaDesplegada] = useState(false);
     const auth = useAuth();
@@ -26,7 +27,8 @@ export function Perfil() {
         setArchivo(event.target.files[0])
     }
 
-    const handleClick = () => {
+    const handleClickFunc = () => {
+        console.log(ventanaDesplegada)
         setVentanaDesplegada(ventanaDesplegada ? false : true )
     }
 
@@ -72,7 +74,7 @@ export function Perfil() {
                         name="resumen"
                         required='required'
                         onChange={handleInput} />
-                        <Button text='Enviar Artículo' />
+                        <Button handleClick={handleClickFunc} text='Enviar Artículo' />
                     </form>
                 </section>
             }>
@@ -92,7 +94,7 @@ export function Perfil() {
                     <TablaAutor />
                     <Button 
                     text="Nuevo Articulo" 
-                    onClickFunction={handleClick}/>
+                    handleClick={handleClickFunc}/>
                 </div>
             </section>
 
