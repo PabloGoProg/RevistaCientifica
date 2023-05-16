@@ -1,5 +1,4 @@
 import React from "react";
-import { EtiquetaTexto } from "./EtiquetaTexto";
 import '../Styles/TablaEditor.css';
 
 export function TablaEditor(props) {
@@ -10,7 +9,7 @@ export function TablaEditor(props) {
           <thead className="ta-head">
             <tr> 
               <th scope="col" >Titulo</th>
-              <th scope="col" >Tematicas</th>
+              <th scope="col" >Autor</th>
               <th scope="col" >Estado</th>
               <th scope="col" ></th>
             </tr>

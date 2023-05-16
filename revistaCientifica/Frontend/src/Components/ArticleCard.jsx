@@ -18,7 +18,6 @@ export function ArticleCard({tittle, name, desc, ruta}){
                 {tittle}
             </span>
             <Profile name = {name} desc = {desc}/>
-            <img src="src\Images\comunidad.png"/>
         </section>
     );
 }
