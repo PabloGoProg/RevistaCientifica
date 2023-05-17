@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { EtiquetaTexto } from "./EtiquetaTexto";
 import '../Styles/TablaAutor.css';
 
 export function TablaAutor() {
+
+  
+
   return (
     <>
       <section className="ta-section" >
@@ -15,32 +18,7 @@ export function TablaAutor() {
             </tr>
           </thead>
           <tbody className="ta-body">
-            <tr>
-              <td>Titulo articulo #1</td>
-              <td>
-                <EtiquetaTexto texto="Tecnología"/>
-                <EtiquetaTexto texto="Tecnología"/>
-              </td>
-              <td>Publicado</td>
-            </tr>
-
-            <tr>
-              <td>Titulo articulo #1</td>
-              <td>
-                <EtiquetaTexto texto="Tecnología"/>
-                <EtiquetaTexto texto="Tecnología"/>
-              </td>
-              <td>Publicado</td>
-            </tr>
-
-            <tr>
-              <td>Titulo articulo #1</td>
-              <td>
-                <EtiquetaTexto texto="Tecnología"/>
-                <EtiquetaTexto texto="Tecnología"/>
-              </td>
-              <td>Publicado</td>
-            </tr>
+            
           </tbody>
         </table>
       </section>
