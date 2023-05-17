@@ -9,7 +9,7 @@ export function EditorPage(){
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get('http://localhost:3000/api/articles')
+        axios.get('http://localhost:3000/api/sendArticles')
         .then(response => {
             setData(response.data);
             setLoading(false);
