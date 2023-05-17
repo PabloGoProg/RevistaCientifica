@@ -19,31 +19,21 @@ create table editores(
 	id_usuario int primary key not null
 );
 
-
 create table if not exists articulos(
 	id_articulo serial primary key,
 	editor_fk int,
+	autor_fk int,
 	titulo varchar(40),
 	resumen varchar(250),
 	ruta varchar(100),
 	constraint articulos_editor_fk foreign key(editor_fk)
 	references editores(id_usuario) match simple
 	on update no action
-	on delete no action
-);
-
-create table autor_articulo(
-	autor_fk int not null,
-	articulo_fk int not null,
-	fecha_presentacion date,
-	constraint autor_articulo_autor_fk foreign key(autor_fk)
+	on delete no action,
+	constraint articulos_autor_fk foreign key(autor_fk)
 	references autores(id_usuario) match simple
 	on update no action
-	on delete restrict,
-	constraint autor_articulo_articulo_fk foreign key(articulo_fk)
-	references articulos(id_articulo) match simple
-	on update no action
-	on delete cascade
+	on delete no action
 );
 
 create table articulo_tematica(

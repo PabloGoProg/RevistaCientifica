@@ -22,12 +22,13 @@ export function Login() {
         setBodySesion({...bodySesion, [event.target.name]: event.target.value});
     };
 
-    const getInfoUsuario = () => {
-        axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}`, bodySesion.correo)
-        .then(res => {
-            console.log(res.data)
-            auth.login(res.data[0])
-        });
+    const getInfoUsuario = async () => {
+        try {
+            const usuario = await axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}`, bodySesion.correo);
+            auth.login(usuario.data[0])
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleSubmit = (event) => {

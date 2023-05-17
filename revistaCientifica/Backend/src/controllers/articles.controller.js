@@ -24,8 +24,8 @@ export const getArticleById = async (req, res) => {
 export const createArticle = async(req, res) => {
     const {editor_fk, titulo, resumen, ruta} = req.body;
     try {
-        const result = await pool.query('INSERT INTO articulos (editor_fk, titulo, resumen, ruta) VALUES ($1, $2, $3, $4)', [editor_fk, titulo, resumen, ruta]);
-        res.json(result);   
+        const result = await pool.query('INSERT INTO articulos (editor_fk, titulo, resumen, ruta) VALUES ($1, $2, $3, $4) RETURNING *', [editor_fk, titulo, resumen, ruta]);
+        res.json(result.rows);   
     } catch (error) {
         res.status(500).json({"message": "error al crear el articulo"});
     }  
