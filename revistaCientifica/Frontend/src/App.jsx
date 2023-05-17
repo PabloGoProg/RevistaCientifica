@@ -28,6 +28,7 @@ export function App(){
                         <Route path="/register" element={<Register />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/principal" element={<Principal />} />
+                        <Route path="/editor" element={<EditorPage/>}/>
                         <Route path="*" element={<p>Not found</p>} />
                     </Routes>
                     <Footer/>

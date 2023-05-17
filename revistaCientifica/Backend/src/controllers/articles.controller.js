@@ -1,8 +1,17 @@
 import {pool} from '../bd.js';
 
-export const getArticles = async (req, res) => {
+export const getSendArticles = async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM articulos')
+        const result = await pool.query('SELECT * FROM articulos where editor_fk is null')
+        res.json(result.rows);  
+    } catch (error) {
+        res.status(500).send(error)
+    }        
+}
+
+export const getPostArticles = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM articulos where editor_fk is not null')
         res.json(result.rows);  
     } catch (error) {
         res.status(500).send(error)
@@ -42,6 +51,30 @@ export const updateArticle = async (req, res) => {
         res.status(500).json({"message": "error al actualizar el articulo"});
     }
 };
+
+export const deleteEditorToArticle = async(req, res) =>{
+    try {
+        const result = await pool.query('UPDATE articulos SET editor_fk = null WHERE id_articulo = $1', [req.params.id]);
+        if (result.rowCount > 0) res.send(`articulo con id ${req.params.id} actualizado`);
+        else res.send('achieved');
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({"message": error});
+    }
+}
+
+export const addEditorToArticle = async(req, res) =>{
+    try {
+        const result = await pool.query('UPDATE articulos SET editor_fk = $1 WHERE id_articulo = $2', [40, req.params.id]);
+        if (result.rowCount > 0) res.send(`articulo con id ${req.params.id} actualizado`);
+        else res.send('achieved');
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({"message": error});
+    }
+}
 
 export const deleteArticle = async (req, res) => {
     try {

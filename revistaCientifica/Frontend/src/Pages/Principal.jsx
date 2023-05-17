@@ -8,7 +8,7 @@ export function Principal(){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/articles')
+        axios.get('http://localhost:3000/api/postArticles')
         .then(response => {
             setData(response.data);
             setLoading(false);
