@@ -49,6 +49,14 @@ export function Perfil() {
      */
     const handleInputFile = (event) => {
         setFile(event.target.files[0])
+        axios.get('http://localhost:3000/api/sendArticles', {})
+        .then(res => {
+            const lastUpdate = res.data.length > 0 
+                ? res.data[res.data.length - 1].id_articulo
+                : 0;
+            const modifiedFile = new File([file], `${lastUpdate+1}.pdf`, {type: file.type});
+            setFile(modifiedFile);
+        });
     }
 
     /**
@@ -69,23 +77,18 @@ export function Perfil() {
             ruta: ''
         }
 
-        // Anexa el articulo a la base de datos a través de un post de la vartiable target
-        axios.post('http://localhost:3000/api/articles', target, {
-        }).then(res => {
-            const modifiedFile = new File([file], `${res.data[0].id_articulo}.pdf`, {type: file.type}); // Cambia el nombre del archivo con el id del articulo, seguido de su extension
-            target.ruta = `src/docs/${res.data[0].id_articulo}.pdf`; // Actualiza la ruta del articulo en la variable target
-            axios.patch(`http://localhost:3000/api/articles/${res.data[0].id_articulo}`, target, {}) // Actualiza la ruta del articulo en la base de datos
-            setFile(modifiedFile); // Actualiza el archivo con el nombre modificado
-        })
+        target.ruta =`/getArticle/${file.name}`;
+        console.log(target.ruta)
 
-        // Modelo de datos del archivo
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append('file', file);
+
+        axios.post('http://localhost:3000/api/articles', target, {});
 
         // Anexa el archivo a la base de datos a través de un post de la vartiable formData
         axios.post('http://localhost:3000/api/docs', formData, {
         }).then(res => {
-            console.log('subiudo')
+            console.log(res.data)
         });
 
     }

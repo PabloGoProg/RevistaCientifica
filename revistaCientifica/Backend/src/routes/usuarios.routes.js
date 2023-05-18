@@ -11,7 +11,7 @@ const router = Router();
 
 router.get('/usuarios/:correo/:contrasena', buscarUsuario);
 router.get('/usuarios/:id', getUsuariosById);
-router.post('/usuarios/', postUsuarios);
+router.post('/usuarios', postUsuarios);
 router.put('/usuarios', putUsuarios);
 router.delete('/usuarios/:id', deleteUsuarios);
 

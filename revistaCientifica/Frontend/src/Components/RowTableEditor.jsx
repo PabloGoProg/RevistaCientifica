@@ -12,11 +12,10 @@ export function RowTableEditor({id, name, autor = "N/A", estado = "No aceptado"}
 
     const addEditorToArticle = (id) => {
         if (id){
-            axios.patch('http://localhost:3000/api/articles/addEditor/'+id_real, {"editor_fk":40})
+            axios.patch('http://localhost:3000/api/articles/addEditor/'+id_real, {"editor_fk":1})
             .then(response =>{console.log(response.data)});
         }
     }
-
 
     const article_id = parseInt({id})
     return( 

@@ -4,7 +4,6 @@ import { pool } from '../bd.js';
 export const getUsuariosById = async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM usuarios WHERE correo = $1', [req.params.id]);
-        // retorna el resltado de la query
         res.json(result.rows);
     } catch (error) {
         res.status(500).json('Internal server error');
@@ -16,9 +15,6 @@ export const buscarUsuario = async (req, res) => {
         const correo = req.params.correo;
         const contrasena = req.params.contrasena;
         const result = await pool.query('SELECT * FROM usuarios WHERE correo = $1 AND contrasena = $2', [correo, contrasena]);
-        if(result.rowCount === 0) {
-            res.json(result.rowCount);
-        }
         res.json(result.rowCount);
     } catch (error) {
         res.status(500).json('Internal server error');

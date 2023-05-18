@@ -8,10 +8,11 @@ export function Principal(){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/postArticles')
+        axios.get('http://localhost:3000/api/sendArticles')
         .then(response => {
             setData(response.data);
             setLoading(false);
+            console.log(response.data);
         })
         .catch(error => {
             console.error(error);
@@ -25,9 +26,9 @@ export function Principal(){
 
     return (
         <section className='main_content_principal'>
-        {data.map(article => (
-            <ArticleCard key={article.id_articulo} tittle={article.titulo} desc={article.resumen} ruta={"src/docs/algorithms.pdf"}/>
-        ))}
+            {data.map(article => (
+                <ArticleCard key={article.id_articulo} tittle={article.titulo} desc={article.resumen} ruta={article.ruta}/>
+            ))}
         </section>
     );
 }

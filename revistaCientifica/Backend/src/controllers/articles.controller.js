@@ -66,7 +66,7 @@ export const deleteEditorToArticle = async(req, res) =>{
 
 export const addEditorToArticle = async(req, res) =>{
     try {
-        const result = await pool.query('UPDATE articulos SET editor_fk = $1 WHERE id_articulo = $2', [40, req.params.id]);
+        const result = await pool.query('UPDATE articulos SET editor_fk = $1 WHERE id_articulo = $2', [1, req.params.id]);
         if (result.rowCount > 0) res.send(`articulo con id ${req.params.id} actualizado`);
         else res.send('achieved');
 

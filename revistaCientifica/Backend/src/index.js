@@ -29,7 +29,7 @@ const multerUpload = multer({
         else cb(new Error('Formato de archivo no válido'));
     },
     limits: {
-        fileSize: 10000000,
+        fileSize: 20000000,
     },
 })
 
@@ -43,23 +43,20 @@ app.use(editoresRoutes);
 app.use(tematicasRoutes);
 app.use(usuariosRoutes);
 app.use(express.static('src/docs'));
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.post('/api/docs', multerUpload.single('file'), (req, res) => {
     console.log(req.file);
     res.sendStatus(200);
 });
 
+app.use('/getArticle', express.static(join(CURRENT_DIR, FILEPATH)));
+
 app.use('/api', indexRoutes);
 app.use('/api', articlesRoutes);
-app.use((req, res, next) => {
-    res.status(404).json({
-        "message": "not found"
-    })
-});
-
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', ['http://localhost:3000', 'http://localhost:5173']);
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
     next();

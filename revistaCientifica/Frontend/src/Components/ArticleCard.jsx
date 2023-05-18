@@ -5,7 +5,7 @@ import { saveAs } from 'file-saver';
 export function ArticleCard({tittle, name, desc, ruta}){
     const handleDownload = async () => {
         try {
-          const pdfBlob = await fetch(ruta).then((res) => res.blob());
+          const pdfBlob = await fetch(`http://localhost:3000${ruta}`).then((res) => res.blob());
           saveAs(pdfBlob, `${tittle}.pdf`);
         } catch (error) {
           console.error(error);
