@@ -34,7 +34,7 @@ export function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.get(`http://localhost:3000/usuarios/${bodySesion.correo}/${bodySesion.contrasena}`, bodySesion)
-        .then(res => {
+        .then(() => {
             getInfoUsuario();
         });
     }

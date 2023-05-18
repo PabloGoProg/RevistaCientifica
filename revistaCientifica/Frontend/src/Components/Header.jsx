@@ -41,6 +41,7 @@ export function Header() {
       navigate('/login');
     } else if(option.name == 'Cerrar sesión') {
       setVentanaDesplegada(true);
+      setMenuDesplegado(false);
     }
     else if(option.name == 'Artículos') {
       navigate('/principal');

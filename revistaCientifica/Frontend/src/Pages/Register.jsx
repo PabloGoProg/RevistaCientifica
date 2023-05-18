@@ -23,40 +23,37 @@ export function Register() {
     const[usuarioNoExistente, setUsuarioNoExistente] = useState(false);
 
     /**
-     * Verifica si el usuario existe en la base de datos con el correo ingresado
-     * @param {*} target el correo ingresado por el usuario
-     * @returns booleano que indica si el usuario existe o no
-     */
-    function validarUsuarioNoExistente(target) {
-        axios.get(`http://localhost:3000/usuarios/${target}`)
-        .then(res => {
-            console.log(res.data.length)
-            res.data.length == 0 ? setUsuarioNoExistente(true) : setUsuarioNoExistente(false);
-        })
-    };
-
-    /**
      * Funcion encargada de actualizar el estado del usuario
      * @param {*} event 
      */
     const handleInpunt = (event) => {
         setBodyUsuario({...bodyUsuario, [event.target.name]: event.target.value}); 
+        if(event.target.name === 'correo') {
+            axios.get(`http://localhost:3000/usuarios/${event.target.value}`, {})
+            .then(res => {
+                if(res.data.length === 0) {
+                    setUsuarioNoExistente(true);
+                } else {
+                    setUsuarioNoExistente(false);
+                }
+            });
+        }
     }
 
     /**
      * Funcion encargada de enviar los datos del usuario al servidor
      * @param {*} event 
      */
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        validarUsuarioNoExistente(bodyUsuario.correo);
         if(usuarioNoExistente) {
-            axios.post('http://localhost:3000/usuarios', bodyUsuario)
-            setUsuarioNoExistente(false);
+            await axios.post('http://localhost:3000/usuarios', bodyUsuario, {});
+            await axios.get(`http://localhost:3000/usuarios/${bodyUsuario.correo}`, {})
+            .then(res => {
+                bodyUsuario.id_usuario = res.data[0].id_usuario;
+            });
             auth.login(bodyUsuario);
-        } else {
-            alert('El usuario ya existe');
-        }
+        } 
     }
 
     return (
@@ -100,7 +97,7 @@ export function Register() {
                             required='required' />
                             <span>Contraseña</span>
                         </label>
-                        <Button text='Registrarse' />
+                        <Button text="Registrarse" />
                     </form>
                 </div>
             </section>
